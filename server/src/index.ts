@@ -43,7 +43,7 @@ app.post('/quote', async (req: Request, res: Response) => {
     if (exists) throw new Error('Quote already exists');
 
     favorites.push(quote);
-    res.status(200).json({ message: 'Added to favorites' });
+    res.status(200).json(favorites);
   } catch (error) {
     if (error instanceof z.ZodError) {
       res.status(400).json({
